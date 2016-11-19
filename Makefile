@@ -1,4 +1,4 @@
-GAME_NAME=Default
+GAME_NAME=starfield
 FILES:=$(shell find . -not -iwholename '*.git*')
 FILES:=$(filter-out .,$(FILES))
 FILES:=$(filter-out ./Makefile,$(FILES))
