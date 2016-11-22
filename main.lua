@@ -65,7 +65,8 @@ function Star:render()
     local size = (math.atan(self.s/self.z)/FOVr)*self.s
 
     if  sx >=  width or sx <= 0 or
-        sy >= height or sy <= 0 then
+        sy >= height or sy <= 0 or 
+        self.z < 0 then
         self:setPos()
     end
     love.graphics.circle(
@@ -102,9 +103,11 @@ end
 function love.keypressed(key, scancode, isrepeat)
     if isrepeat == false then
         if key == "up" then
-            velocity = math.min(50,velocity+2)
+            velocity = math.min(100,velocity+2)
         elseif key == "down" then
             velocity = math.max(2,velocity-2)
+        elseif key == "escape" then
+            love.event.quit()
         end
     end
 end
